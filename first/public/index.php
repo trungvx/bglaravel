@@ -48,6 +48,20 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
+function exception_handler($exception) {
+    echo "Uncaught exception: " , $exception->getMessage(), "\n";exit();
+}
+
+set_exception_handler('exception_handler');
+
+// A user-defined error handler function
+function myErrorHandler($errno, $errstr, $errfile, $errline) {
+    echo "<b>Custom error:</b> [$errno] $errstr<br>";
+    echo " Error on line $errline in $errfile<br>";exit();
+}
+
+// Set user-defined error handler function
+set_error_handler("myErrorHandler");
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 

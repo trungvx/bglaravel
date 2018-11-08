@@ -2,24 +2,26 @@
 /**
  * Created by PhpStorm.
  * User: trungvx
- * Date: 11/8/18
- * Time: 8:54 AM
+ * Date: 11/9/18
+ * Time: 12:24 AM
  */
 
-namespace App\Repositories;
+namespace App\Service;
+
 
 use App\Product;
+use App\Repositories\ProductInterface;
 
-class ProductRepository implements ProductInterface
+class ProductService implements ProductInterface
 {
     /**
-     * @var Product
+     * @var ProductServiceInterface
      */
-    protected $model;
+    protected $productRepository;
 
-    function __construct($model)
+    public function __construct(ProductServiceInterface $productRepository)
     {
-        $this->model = $model;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -28,7 +30,7 @@ class ProductRepository implements ProductInterface
      */
     public function create(array $data): bool
     {
-        return $this->model->save($data);
+        $this->productRepository->create($data);
     }
 
     /**
@@ -58,6 +60,4 @@ class ProductRepository implements ProductInterface
     {
         // TODO: Implement get() method.
     }
-
-
 }

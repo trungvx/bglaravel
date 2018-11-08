@@ -2,22 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: trungvx
- * Date: 11/8/18
- * Time: 8:53 AM
+ * Date: 11/9/18
+ * Time: 12:22 AM
  */
 
-namespace App\Repositories;
+namespace App\Service;
 
 
-use App\Product;
-use phpDocumentor\Reflection\Types\Boolean;
-
-Interface ProductInterface
+interface ProductServiceInterface
 {
     public function create ( array $data ) : bool ;
     public function edit (int $id, array $data) : bool ;
     public function delete (int $id) : bool ;
     public function get (int $id) : Product ;
-
-
 }
