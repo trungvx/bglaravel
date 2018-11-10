@@ -8,6 +8,8 @@
 
 namespace App\Service;
 
+use App\Models\Product;
+
 
 interface ProductServiceInterface
 {

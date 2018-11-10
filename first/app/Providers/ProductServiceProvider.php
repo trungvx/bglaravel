@@ -14,13 +14,13 @@ use Illuminate\Support\ServiceProvider;
 
 class ProductServiceProvider extends ServiceProvider
 {
-    public $singletonss = [
-        //ProductServiceInterface::class => ProductService::class
+    public $singletons = [
+      //  ProductServiceInterface::class => ProductService::class
     ];
 
     public  function register()
     {
         //echo "ok1";exit();
-        $this->app->singleton(\App\Service\ProductServiceInterface::class, \App\Service\ProductService::class);
+       // $this->app->singleton(\App\Service\ProductServiceInterface::class, \App\Service\ProductService::class);
     }
 }

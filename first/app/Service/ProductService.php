@@ -8,18 +8,17 @@
 
 namespace App\Service;
 
+use App\Models\Product;
+use App\Repositories\ProductRepositoryInterface;
 
-use App\Product;
-use App\Repositories\ProductInterface;
-
-class ProductService implements ProductInterface
+class ProductService implements ProductServiceInterface
 {
     /**
      * @var ProductServiceInterface
      */
     protected $productRepository;
 
-    public function __construct(ProductServiceInterface $productRepository)
+    public function __construct(ProductRepositoryInterface $productRepository)
     {
         $this->productRepository = $productRepository;
     }
@@ -30,7 +29,7 @@ class ProductService implements ProductInterface
      */
     public function create(array $data): bool
     {
-        $this->productRepository->create($data);
+        return $this->productRepository->create($data);
     }
 
     /**
@@ -59,5 +58,8 @@ class ProductService implements ProductInterface
     public function get(int $id): Product
     {
         // TODO: Implement get() method.
+        return null;
     }
+
+
 }

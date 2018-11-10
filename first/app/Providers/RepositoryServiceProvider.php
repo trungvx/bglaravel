@@ -14,12 +14,8 @@ use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
-    public $singletonss = [
-       // ProductRepositoryInterface::class => ProductRepository::class
-    ];
-
-    public $bindingss= [
-      //  ProductRepositoryInterface::class => ProductRepository::class
+    public $singletons = [
+       //ProductRepositoryInterface::class => ProductRepository::class
     ];
 
     public function boot(){
@@ -29,7 +25,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public  function register()
     {
         //echo "ok1";exit();
-        $this->app->singleton(\App\Repositories\ProductRepositoryInterface::class, \App\Repositories\ProductRepository::class);
+        //$this->app->singleton(\App\Repositories\ProductRepositoryInterface::class, \App\Repositories\ProductRepository::class);
     }
 
 }

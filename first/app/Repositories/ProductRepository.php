@@ -8,16 +8,16 @@
 
 namespace App\Repositories;
 
-use App\Product;
+use App\Models\Product;
 
-class ProductRepository implements ProductInterface
+class ProductRepository implements ProductRepositoryInterface
 {
     /**
      * @var Product
      */
     protected $model;
 
-    function __construct($model)
+    function __construct(Product $model, int $data)
     {
         $this->model = $model;
     }
@@ -28,7 +28,8 @@ class ProductRepository implements ProductInterface
      */
     public function create(array $data): bool
     {
-        return $this->model->save($data);
+        //dd($data);
+        return (boolean)$this->model->create($data);
     }
 
     /**

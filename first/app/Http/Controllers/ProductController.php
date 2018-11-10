@@ -50,14 +50,15 @@ class ProductController extends Controller
      *  @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Product $product)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
         ]);
 
-        Product::create($request->all());
+        //Product::create($request->all());
+        $this->productService->create($request->all());
 
         return redirect()->route('products.index')
             ->with('success','Product created successfully.');

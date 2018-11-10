@@ -9,10 +9,9 @@
 namespace App\Repositories;
 
 
-use App\Product;
-use phpDocumentor\Reflection\Types\Boolean;
+use App\Models\Product;
 
-Interface ProductInterface
+Interface ProductRepositoryInterface
 {
     public function create ( array $data ) : bool ;
     public function edit (int $id, array $data) : bool ;

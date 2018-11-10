@@ -34,7 +34,19 @@ require __DIR__.'/../vendor/autoload.php';
 | the responses back to the browser and delight our users.
 |
 */
+function exception_handler($exception) {
+    echo "loi vao day";exit();
+}
 
+set_exception_handler('exception_handler');
+
+// A user-defined error handler function
+function myErrorHandler($errno, $errstr, $errfile, $errline) {
+    echo "loi vao day";exit();
+}
+
+// Set user-defined error handler function
+set_error_handler("myErrorHandler");
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 /*
@@ -48,20 +60,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-function exception_handler($exception) {
-    echo "Uncaught exception: " , $exception->getMessage(), "\n";exit();
-}
 
-set_exception_handler('exception_handler');
-
-// A user-defined error handler function
-function myErrorHandler($errno, $errstr, $errfile, $errline) {
-    echo "<b>Custom error:</b> [$errno] $errstr<br>";
-    echo " Error on line $errline in $errfile<br>";exit();
-}
-
-// Set user-defined error handler function
-set_error_handler("myErrorHandler");
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
